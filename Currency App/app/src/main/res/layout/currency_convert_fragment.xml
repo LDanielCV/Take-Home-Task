@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.views.CurrencyConvertFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.assigment.taskcurrencyapp.ui.viewmodels.BaseViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.assigment.taskcurrencyapp.ui.adapter.CurrencyAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SearchView
+            android:id="@+id/value_edit_text"
+            android:layout_width="0dp"
+            android:iconifiedByDefault="false"
+            android:searchIcon="@null"
+            android:searchHintIcon="@null"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_margin="@dimen/margin_15dp"
+            android:inputType="numberDecimal"/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/value_edit_text"
+            app:refreshing="@{viewModel.loading}"
+            android:layout_margin="@dimen/margin_15dp"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/currency_dv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:setAdapter="@{adapter}"/>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

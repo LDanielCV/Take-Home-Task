@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Task Currency App</string>
+    <string name="default_error_message">Oh no!, Something wrong happened, pleas retry later :(</string>
+    <string name="error_title">Error</string>
+    <string name="close_text">Close</string>
+    <string name="search">search</string>
+</resources>
